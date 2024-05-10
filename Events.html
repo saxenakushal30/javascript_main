@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>html Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+  <h2>Amazing Image</h2>
+  <div class="div">
+    <ul id = "images"></ul>
+  </div>
+  
+</body>
+<script>
+  // document.getElementById('owl').onclick = function(){
+  //   alert("owl clicked")
+  // }
+
+  // document.getElementById('owl').addEventListener('click', function(){
+  //   alert("owl clicked again")
+  // })
+  // attachEvent()
+
+  document.getElementById('owl').addEventListener('click',function(e){
+    // type, timeStamp, defaultPrevented
+    // target, toElement, scrElement, currentElement,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+  })
+  document.getElementById('owl').addEventListener('click',function(e){
+    console.log("clicked inside the ul");
+  }, false)
+  document.getElementById('owl').addEventListener('click', function(e){
+    console.log("owl clicked");
+    e.stopPropagation()
+  }, false)
+
+  document.getElementById('google').addEventListener('click',function(e){
+    console.log("google clicked");
+    e.preventDefault();
+    e.stopPropagation()
+    console.log("google clicked");
+  }, false)
+
+  documen.querySelector('#images').addEventListener('click', function(e){
+    console.log(e.target.tagname);
+    if (e.target.tagname === 'IMG'){
+    let removeIt = e.target.parentNode
+    // removeIt.remove()
+    removeIt.parentNode.removeChild(removeIt)
+
+    }
+  })
+
+</script>
+</html>
